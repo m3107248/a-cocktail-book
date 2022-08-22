@@ -30,6 +30,8 @@ export default function Login() {
     }
     if (error) {
       console.log("error");
+      console.log(username);
+      console.log(passwd);
     }
   }
   async function supaSignUp(e) {
