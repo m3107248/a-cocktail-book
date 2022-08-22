@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import * as process from "process";
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = "https://iznfbqrevlorsxyoaueo.supabase.co";
