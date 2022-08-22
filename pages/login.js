@@ -30,8 +30,7 @@ export default function Login() {
     }
     if (error) {
       console.log("error");
-      console.log(username);
-      console.log(passwd);
+      console.log(process.env.NEXT_PUBLIC_SUPABASEANON);
     }
   }
   async function supaSignUp(e) {
