@@ -28,7 +28,6 @@ export default function Favourite() {
   }, []);
 
   if (searchState !== null && searchState !== "loading") {
-    console.log(searchState);
     pageContent = searchState.map(function (e) {
       return (
         <div key={e.recipe_id} className="result-item col-40">

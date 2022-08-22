@@ -114,7 +114,6 @@ export default function FavRecipe() {
   );
   useEffect(
     function () {
-      console.log(recipeID);
       recipeID !== undefined ? fetchRecipe() : false;
     },
     [recipeID]
