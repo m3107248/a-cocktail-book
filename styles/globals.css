@@ -101,6 +101,10 @@ input:focus-visible {
   box-shadow: unset !important;
   outline-style: none;
 }
+input:focus {
+  border-bottom: solid 1px #ebd7b9;
+  transition: 0.3s ease;
+}
 input::placeholder {
   color: #b8b8b8;
 }
@@ -125,6 +129,18 @@ input::placeholder {
   border-right: solid 1px #000;
   transform: rotate(45deg) translate(-6px, 3px);
   margin-left: 8px;
+}
+.btn-s:hover {
+  color: #ebd7b9;
+  transition: 0.3s ease;
+  letter-spacing: 3.2px;
+}
+.btn-s:hover::after {
+  height: 20px;
+  width: 20px;
+  border-top: solid 1px #ebd7b9;
+  border-right: solid 1px #ebd7b9;
+  transition: 0.2s ease;
 }
 .site-note {
   display: block;
@@ -514,6 +530,22 @@ nav ul.nav-ul {
     0px 1px 6px 0px rgba(200, 240, 255, 1);
   color: #797a8d;
   margin-right: 10px;
+}
+.result-item button:hover {
+  background: linear-gradient(
+    120deg,
+    rgba(247, 250, 254, 0.9) 0%,
+    rgba(254, 252, 240, 0.1) 100%
+  );
+  border: solid 1px #e7e9f2;
+  box-shadow: 12px 15px 20px -14px rgba(0, 0, 0, 0.5),
+    3px 3px 14px 0px rgba(200, 240, 255, 1);
+  transition: 0.3s ease;
+}
+.result-item button:hover h5 {
+  color: #000;
+  letter-spacing: 2.2px;
+  transition: 0.3s ease;
 }
 /* FORM END */
 
