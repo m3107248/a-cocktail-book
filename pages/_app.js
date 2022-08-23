@@ -1,8 +1,15 @@
 import "../styles/globals.css";
-import { useState } from "react";
+import { useState, useEffect, createContext, useContext, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Router from "next/router";
+import { createClient } from "@supabase/supabase-js";
+
+const SUPABASE_URL = "https://iznfbqrevlorsxyoaueo.supabase.co";
+const supabase = createClient(
+  SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASEANON
+);
 
 /* Router.events.on("routeChangeStart", () => {
   console.log("start loading");
@@ -11,9 +18,29 @@ Router.events.on("routeChangeComplete", () => {
   console.log("end loading");
 });
  */
+
+export const LoginContext = createContext({
+  loginState: "",
+  setLoginState: () => {},
+});
+
 function MyApp({ Component, pageProps }) {
   const [mainNav, setMainNav] = useState("close");
+  const [loginState, setLoginState] = useState(null);
+  const user = supabase.auth.user();
+  const [userInfo, setUserInfo] = useState(user);
   const router = useRouter();
+  const value = useMemo(() => ({ loginState, setLoginState }), [loginState]);
+
+  function sessionCheck() {
+    if (loginState !== "login" && loginState !== "authenticating") {
+      if (userInfo === null || userInfo.aud !== "authenticated") {
+        setLoginState("login");
+        router.push("/login");
+      }
+    }
+  }
+  useEffect(sessionCheck, [userInfo]);
 
   /* MENU EVENT */
   function handleMenuClick() {
@@ -76,7 +103,9 @@ function MyApp({ Component, pageProps }) {
         className={mainNav === "open" ? "menu-display" : "menu-hide"}
       ></div>
       <main>
-        <Component {...pageProps} />
+        <LoginContext.Provider value={value}>
+          <Component {...pageProps} />
+        </LoginContext.Provider>
       </main>
     </div>
   );

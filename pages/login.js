@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { createClient } from "@supabase/supabase-js";
+import { LoginContext } from "./_app";
 
 const SUPABASE_URL = "https://iznfbqrevlorsxyoaueo.supabase.co";
 const supabase = createClient(
   SUPABASE_URL,
   process.env.NEXT_PUBLIC_SUPABASEANON
 );
+
 export default function Login() {
   const [username, setUsername] = useState(null);
   const [passwd, setPasswd] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const router = useRouter();
+  const { loginState, setLoginState } = useContext(LoginContext);
 
   function handleUsernameInput(e) {
     setUsername(e.target.value);
@@ -17,7 +22,6 @@ export default function Login() {
   function handlePasswdInput(e) {
     setPasswd(e.target.value);
   }
-
   async function supaSignIn(e) {
     e.preventDefault();
     const { user, session, error } = await supabase.auth.signIn({
@@ -25,11 +29,12 @@ export default function Login() {
       password: `${passwd}`,
     });
     if (session) {
-      console.log(user);
-      console.log(session);
+      setLoginState("authenticating");
+      /*      console.log(user);
+      console.log(session); */
+      setUserInfo(user);
     }
     if (error) {
-      console.log("error");
       console.log(error);
     }
   }
@@ -40,6 +45,12 @@ export default function Login() {
       password: `${passwd}`,
     });
     supaSignIn(e);
+  }
+
+  if (loginState === "authenticating" && userInfo !== null) {
+    if (userInfo.aud === "authenticated") {
+      router.push("/");
+    }
   }
 
   return (
@@ -70,7 +81,9 @@ export default function Login() {
             </button>
             <p>
               Don’t have an account? Enter your details above and&nbsp;
-              <a id="supbase-signup">Sign Up Now</a>
+              <a id="supbase-signup" onClick={supaSignUp}>
+                Sign Up Now
+              </a>
             </p>
           </div>
         </div>
