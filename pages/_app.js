@@ -49,6 +49,13 @@ function MyApp({ Component, pageProps }) {
   function handleMenuCloseClick() {
     setMainNav("close");
   }
+  async function handleSignOut(e) {
+    e.preventDefault;
+    setMainNav("close");
+    const { error } = await supabase.auth.signOut();
+    setLoginState(null);
+    router.push("/login");
+  }
 
   /* MENU SETUP */
   let mainNavJSX;
@@ -87,6 +94,11 @@ function MyApp({ Component, pageProps }) {
           <li>
             <Link href="/favourite">
               <a onClick={handleMenuCloseClick}>Favourite</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="">
+              <a onClick={handleSignOut}>Log Out</a>
             </Link>
           </li>
         </ul>
