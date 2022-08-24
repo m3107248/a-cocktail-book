@@ -142,7 +142,7 @@ export default function FavRecipe() {
           </button>
           <h1>{cRecipe.strDrink}</h1>
           <div className="col-100 general-container">
-            <div className="col-60 pr-75">
+            <div className="col-60 pr-75 col-s-100">
               <div className="ingredient mt-75 grey">{ingredient}</div>
               <h5 className="method mt-50 grey">
                 [Method] {cRecipe.strInstructions}
@@ -151,7 +151,7 @@ export default function FavRecipe() {
                 [Drinkware] {cRecipe.strGlass}
               </h5>
             </div>
-            <div className="col-40 note-container pl-50">
+            <div className="col-40 note-container pl-50 col-s-100">
               <h5 className="mt-75 grey">Note:</h5>
               <textarea
                 className="grey"

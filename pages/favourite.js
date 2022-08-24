@@ -30,7 +30,7 @@ export default function Favourite() {
   if (searchState !== null && searchState !== "loading") {
     pageContent = searchState.map(function (e) {
       return (
-        <div key={e.recipe_id} className="result-item col-40">
+        <div key={e.recipe_id} className="result-item col-40 col-s-100">
           <button>
             <Link href={`/fav-recipe/${e.recipe_id}`}>
               <h5>{e.recipe_name}</h5>
@@ -41,5 +41,5 @@ export default function Favourite() {
     });
   }
 
-  return <div className="general-container">{pageContent}</div>;
+  return <div className="general-container mt-100">{pageContent}</div>;
 }

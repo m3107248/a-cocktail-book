@@ -10,7 +10,7 @@ export default function Search() {
   function displayResult(data) {
     let searchResult = data.drinks.map(function (e) {
       return (
-        <div key={e.idDrink} className="result-item col-40">
+        <div key={e.idDrink} className="result-item col-40 col-s-100">
           <button>
             <Link href={`/recipe/${e.idDrink}`} recipeId={e.idDrink}>
               <h5>{e.strDrink}</h5>
@@ -55,7 +55,7 @@ export default function Search() {
 
   if (searchState === null) {
     pageContent = (
-      <div className="col-75 container-v-center">
+      <div className="col-75 container-v-center col-s-100">
         <form className="general-container">
           <input
             onChange={handleInput}

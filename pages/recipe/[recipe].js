@@ -116,7 +116,7 @@ export default function Recipe() {
       );
     });
     pageContent = (
-      <div className="col-60 mt-100">
+      <div className="col-60 mt-100 col-s-100">
         <button
           onClick={handleAddFav}
           className={`fav-btn ${
@@ -126,15 +126,19 @@ export default function Recipe() {
           Favourite
         </button>
         <h1>{cRecipe.strDrink}</h1>
-        <div className="ingredient mt-75">{ingredient}</div>
-        <h5 className="method mt-50">[Method] {cRecipe.strInstructions}</h5>
-        <h5 className="drinkware mt-25">[Drinkware] {cRecipe.strGlass}</h5>
+        <div className="ingredient mt-75 col-s-100">{ingredient}</div>
+        <h5 className="method mt-50 col-s-100">
+          [Method] {cRecipe.strInstructions}
+        </h5>
+        <h5 className="drinkware mt-25 col-s-100">
+          [Drinkware] {cRecipe.strGlass}
+        </h5>
       </div>
     );
   }
 
   return (
-    <div className="container-v-center recipe-detail-container">
+    <div className="container-v-center recipe-detail-container col-s-100">
       {pageContent}
     </div>
   );

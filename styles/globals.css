@@ -130,12 +130,14 @@ input::placeholder {
   transform: rotate(45deg) translate(-6px, 3px);
   margin-left: 8px;
 }
-.btn-s:hover {
+.btn-s:hover,
+.btn:hover {
   color: #ebd7b9;
   transition: 0.3s ease;
   letter-spacing: 3.2px;
 }
-.btn-s:hover::after {
+.btn-s:hover::after,
+.btn:hover::after {
   height: 20px;
   width: 20px;
   border-top: solid 1px #ebd7b9;
@@ -601,4 +603,81 @@ video {
   top: 0;
   left: 0;
   z-index: 10;
+}
+
+@media only screen and (max-width: 800px) {
+  /* TYPOGRAPHY START */
+  h1 {
+    font-size: 4rem;
+    letter-spacing: 1.8px;
+    line-height: 3.8rem;
+  }
+  h3,
+  button,
+  input,
+  input:-internal-autofill-selected,
+  input[type="text"] {
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+  }
+  h5,
+  .note-container textarea {
+    font-size: 22px;
+    line-height: 2rem;
+    letter-spacing: 0.9px;
+  }
+  /* TYPOGRAPHY END */
+
+  /* LAYOUT START */
+  #main-container {
+    padding: 40px;
+  }
+  .col-s-50 {
+    width: 50%;
+  }
+  .col-s-100 {
+    width: 100%;
+  }
+  .pl-25 {
+    padding-left: 0;
+  }
+  .pl-50 {
+    padding-left: 0;
+  }
+  .pr-75 {
+    padding-right: 0;
+  }
+  /* LAYOUT START */
+
+  /* NAV START */
+  #nav-bg {
+    width: 100vw;
+  }
+  #nav-bg.menu-display {
+    right: 0;
+    transition: 0.6s ease;
+  }
+  #nav-bg.menu-hide {
+    right: -100vw;
+    transition: 0.6s ease;
+  }
+  /* NAV END */
+
+  /* LOGIN START */
+  .login-container {
+    min-height: 600px;
+  }
+  .login-inner-container {
+    padding: 80px 20px;
+    max-width: 95vw;
+    width: 95vw;
+    margin: 0;
+  }
+  .login-section {
+    margin-top: 80px;
+  }
+  .container-bg {
+    min-height: unset;
+  }
+  /* LOGIN END */
 }
