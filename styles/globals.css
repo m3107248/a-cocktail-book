@@ -1,13 +1,24 @@
 html,
 body {
   background: #ffffff;
-  min-height: 800px;
+  min-height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: "Unna", serif;
+  overflow-y: scroll;
+  color: #fff;
 }
 * {
   box-sizing: border-box;
+}
+body > #__next {
+  height: 100%;
+}
+main {
+  z-index: 1;
+  position: relative;
+  width: 100%;
 }
 
 /* TYPOGRAPHY START */
@@ -17,7 +28,7 @@ h1 {
   font-size: calc(5.5vw + 2.1rem);
   letter-spacing: 3.5px;
   line-height: 5rem;
-  color: #000;
+  color: #fff;
   margin: 0;
 }
 h2,
@@ -27,7 +38,7 @@ nav {
   font-size: 5rem;
   letter-spacing: 1.9px;
   line-height: 5rem;
-  color: #000;
+  color: #fff;
   margin: 0;
 }
 h3,
@@ -40,9 +51,10 @@ input[type="text"] {
   font-size: calc(1.4vw + 1rem);
   letter-spacing: 0.8px;
   line-height: 3.1rem;
-  color: #000;
+  color: #fff;
   margin: 0;
 }
+
 h5,
 .note-container textarea {
   font-family: "Philosopher", Helvetica Neue, Helvetica, -apple-system,
@@ -52,6 +64,7 @@ h5,
   line-height: 2.6rem;
   letter-spacing: 1.2px;
   margin: 0;
+  color: #fff;
 }
 h6 {
   font-family: "Unna", serif;
@@ -59,7 +72,7 @@ h6 {
   font-size: 20px;
   letter-spacing: 0.2px;
   line-height: 1.8rem;
-  color: #000;
+  color: #fff;
 }
 p {
   font-family: "Philosopher", Helvetica Neue, Helvetica, -apple-system,
@@ -89,19 +102,20 @@ input,
 input:-internal-autofill-selected,
 input[type="text"] {
   border: none;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #fff;
   background-color: rgba(255, 255, 255, 0) !important;
   box-shadow: unset !important;
   width: 100%;
 }
 input:focus,
 input:focus-visible {
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #fff;
   background-color: rgba(255, 255, 255, 0) !important;
   box-shadow: unset !important;
   outline-style: none;
 }
-input:focus {
+input:focus,
+input.dark:focus {
   border-bottom: solid 1px #ebd7b9;
   transition: 0.3s ease;
 }
@@ -114,8 +128,8 @@ input::placeholder {
   width: 20px;
   display: inline-block;
   position: relative;
-  border-top: solid 1px #000;
-  border-right: solid 1px #000;
+  border-top: solid 1px #fff;
+  border-right: solid 1px #fff;
   transform: rotate(45deg) translate(-4px, 2px);
   margin-left: 8px;
 }
@@ -125,8 +139,8 @@ input::placeholder {
   width: 15px;
   display: inline-block;
   position: relative;
-  border-top: solid 1px #000;
-  border-right: solid 1px #000;
+  border-top: solid 1px #fff;
+  border-right: solid 1px #fff;
   transform: rotate(45deg) translate(-6px, 3px);
   margin-left: 8px;
 }
@@ -174,6 +188,16 @@ input::placeholder {
 .grey {
   color: #5a5a5a;
 }
+.dark {
+  color: #000;
+}
+ul.display {
+  color: #000;
+}
+input.dark {
+  color: #000;
+  border-bottom: solid 1px #000;
+}
 /* COLOUR END */
 
 /* LAYOUT START */
@@ -193,6 +217,37 @@ input::placeholder {
   display: flex;
   align-items: flex-start;
   min-height: 800px;
+}
+.main-bg-div {
+  background-image: url("../public/fluid-marble.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-bg-div > div {
+  /*   background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.9) 25%,
+    rgba(255, 255, 255, 0) 100%
+  ); */
+  background: linear-gradient(
+    140deg,
+    rgba(0, 0, 0, 0.9) 5%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 80%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .hide {
   display: none;
@@ -286,7 +341,7 @@ nav {
 nav .bar {
   width: 195px;
   height: 1px;
-  background-color: #000;
+  background-color: #fff;
   margin-bottom: 40px;
 }
 #menu-icon div:nth-child(2) {
@@ -312,6 +367,7 @@ nav .bar {
 }
 #menu-close-icon {
   transform: translateY(-25px);
+  color: #000;
 }
 #menu-close-icon div:first-child {
   width: 86px;
@@ -366,12 +422,12 @@ nav ul.nav-ul {
     rgba(244, 248, 250, 0.8) 10%,
     rgba(244, 248, 250, 0.1) 90%
   );
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 40vw;
   min-height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 #nav-bg.menu-display {
   right: 0;
@@ -393,11 +449,13 @@ nav ul.nav-ul {
   background-size: cover;
   background-position: center; */
   padding: 80px;
-  position: relative;
+  /* position: relative; */
   max-width: 1800px;
   overflow: hidden;
   margin: 0 auto;
   overflow-y: scroll;
+  background: rgba(255, 255, 255, 0);
+  z-index: 0;
 }
 /* MAIN LAYOUT END */
 
@@ -529,9 +587,12 @@ nav ul.nav-ul {
     rgba(255, 255, 255, 0) 100%
   );
   box-shadow: 3px 4px 13px -5px rgba(0, 0, 0, 0.5),
-    0px 1px 6px 0px rgba(200, 240, 255, 1);
+    0px 1px 6px 0px rgba(0, 0, 0, 1);
   color: #797a8d;
   margin-right: 10px;
+}
+.result-item h5 {
+  color: #000;
 }
 .result-item button:hover {
   background: linear-gradient(
@@ -541,11 +602,11 @@ nav ul.nav-ul {
   );
   border: solid 1px #e7e9f2;
   box-shadow: 12px 15px 20px -14px rgba(0, 0, 0, 0.5),
-    3px 3px 14px 0px rgba(200, 240, 255, 1);
+    3px 3px 14px 0px rgba(0, 0, 0, 1);
   transition: 0.3s ease;
 }
 .result-item button:hover h5 {
-  color: #000;
+  color: #fff;
   letter-spacing: 2.2px;
   transition: 0.3s ease;
 }
@@ -559,6 +620,7 @@ nav ul.nav-ul {
   padding: 0 30px;
 }
 .note-container textarea {
+  background: rgba(255, 255, 255, 0);
   min-width: 100%;
   max-width: 100%;
   min-height: 300px;

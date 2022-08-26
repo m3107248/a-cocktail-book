@@ -56,11 +56,14 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-inner-container">
-        <h1>A COCKTAIL BOOK</h1>
-        <h3 className="m-25">A cocktail book for you anytime and anywhere.</h3>
+        <h1 className="dark">A COCKTAIL BOOK</h1>
+        <h3 className="m-25 dark">
+          A cocktail book for you anytime and anywhere.
+        </h3>
         <div className="general-container align-center login-section">
           <label htmlFor="username" className="col-50 p-25">
             <input
+              className="dark"
               type="text"
               name="username"
               placeholder="Username"
@@ -69,6 +72,7 @@ export default function Login() {
           </label>
           <label htmlFor="password" className="col-50 p-25">
             <input
+              className="dark"
               type="password"
               name="password"
               placeholder="Password"
@@ -76,10 +80,14 @@ export default function Login() {
             />
           </label>
           <div className="general-container align-center no-flex m-10">
-            <button id="supbase-signin" className="btn" onClick={supaSignIn}>
+            <button
+              id="supbase-signin"
+              className="btn dark"
+              onClick={supaSignIn}
+            >
               Login
             </button>
-            <p>
+            <p className="dark">
               Don’t have an account? Enter your details above and&nbsp;
               <a id="supbase-signup" onClick={supaSignUp}>
                 Sign Up Now

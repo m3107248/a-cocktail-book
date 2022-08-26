@@ -143,18 +143,18 @@ export default function FavRecipe() {
           <h1>{cRecipe.strDrink}</h1>
           <div className="col-100 general-container">
             <div className="col-60 pr-75 col-s-100">
-              <div className="ingredient mt-75 grey">{ingredient}</div>
-              <h5 className="method mt-50 grey">
+              <div className="ingredient mt-75">{ingredient}</div>
+              <h5 className="method mt-50">
                 [Method] {cRecipe.strInstructions}
               </h5>
-              <h5 className="drinkware mt-25 grey">
+              <h5 className="drinkware mt-25">
                 [Drinkware] {cRecipe.strGlass}
               </h5>
             </div>
             <div className="col-40 note-container pl-50 col-s-100">
-              <h5 className="mt-75 grey">Note:</h5>
+              <h5 className="mt-75">Note:</h5>
               <textarea
-                className="grey"
+                className=""
                 onChange={handleNote}
                 value={note}
               ></textarea>

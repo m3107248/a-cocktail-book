@@ -7,6 +7,10 @@ export default function Search() {
   const [inputVal, setInputVal] = useState("");
   let pageContent;
 
+  function displayError() {
+    setSearchState(<h3>No matching result found.</h3>);
+  }
+
   function displayResult(data) {
     let searchResult = data.drinks.map(function (e) {
       return (
@@ -41,7 +45,8 @@ export default function Search() {
       .then((res) => {
         return res.json();
       })
-      .then(displayResult);
+      .then(displayResult)
+      .catch(displayError);
   }
   function handleRandomSearch(e) {
     e.preventDefault();
@@ -103,8 +108,10 @@ export default function Search() {
     );
   }
   if (searchState !== null && searchState !== "loading") {
-    pageContent = <div className="general-container mt-100">{searchState}</div>;
+    pageContent = (
+      <div className="general-container col-100 mt-100">{searchState}</div>
+    );
   }
 
-  return <div className="general-container">{pageContent}</div>;
+  return <div className="general-container col-100">{pageContent}</div>;
 }

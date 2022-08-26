@@ -76,8 +76,8 @@ function MyApp({ Component, pageProps }) {
           onClick={handleMenuCloseClick}
           className={mainNav === "close" ? "hide" : "display"}
         >
-          <div className="bar"></div>
-          <div className="bar"></div>
+          <div className="bar dark"></div>
+          <div className="bar dark"></div>
           Close
         </div>
         <ul className={mainNav === "close" ? "hide" : "display"}>
@@ -119,6 +119,9 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </LoginContext.Provider>
       </main>
+      <div className="main-bg-div">
+        <div></div>
+      </div>
     </div>
   );
 }
