@@ -61,7 +61,7 @@ export default function Login() {
           A cocktail book for you anytime and anywhere.
         </h3>
         <div className="general-container align-center login-section">
-          <label htmlFor="username" className="col-50 p-25">
+          <label htmlFor="username" className="col-50 col-s-100 p-25">
             <input
               className="dark"
               type="text"
@@ -70,7 +70,7 @@ export default function Login() {
               onChange={handleUsernameInput}
             />
           </label>
-          <label htmlFor="password" className="col-50 p-25">
+          <label htmlFor="password" className="col-50 col-s-100 p-25">
             <input
               className="dark"
               type="password"
