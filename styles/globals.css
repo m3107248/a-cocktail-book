@@ -690,14 +690,22 @@ video {
   input,
   input:-internal-autofill-selected,
   input[type="text"] {
+    font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
+      BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
     font-size: 1.9rem;
     line-height: 2.5rem;
+    font-style: normal;
+    font-weight: 300;
   }
   h5,
   .note-container textarea {
     font-size: 22px;
     line-height: 2rem;
     letter-spacing: 0.9px;
+  }
+  input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
   }
   /* TYPOGRAPHY END */
 
