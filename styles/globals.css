@@ -809,6 +809,14 @@ nav ul.nav-ul {
     background: rgba(255, 255, 255, 0);
     z-index: 0;
   }
+  .login-container {
+    position: relative;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
   .login-inner-container {
     padding: 40px 10px;
     max-width: 99vw;
