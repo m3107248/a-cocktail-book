@@ -710,6 +710,7 @@ video {
   }
   h3 {
     font-family: "Unna", serif;
+    font-weight: 300;
     font-size: 1.9rem;
     line-height: 2.5rem;
     font-style: normal;
@@ -729,14 +730,14 @@ video {
     line-height: 2rem;
     letter-spacing: 0.9px;
   }
-  input,
-  input:-internal-autofill-selected,
-  input[type="text"] {
+
+  input {
     font-family: "Unna", serif;
     font-size: 1.9rem;
     line-height: 2.5rem;
     font-style: normal;
     font-weight: 300;
+    padding: 5px 0px 0px 0px;
     -webkit-appearance: none;
     -webkit-border: none;
     -webkit-border-bottom: solie 1px #000;
@@ -811,7 +812,7 @@ video {
     min-height: 600px;
   }
   .login-inner-container {
-    padding: 80px 20px;
+    padding: 60px 20px;
     max-width: 95vw;
     width: 95vw;
     margin: 0;
@@ -823,12 +824,4 @@ video {
     min-height: unset;
   }
   /* LOGIN END */
-}
-input[type="text"],
-input[type="button"],
-input[type="submit"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 0;
 }
