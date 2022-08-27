@@ -133,6 +133,10 @@ input::placeholder {
   transform: rotate(45deg) translate(-4px, 2px);
   margin-left: 8px;
 }
+.btn.dark::after {
+  border-top: solid 1px #000;
+  border-right: solid 1px #000;
+}
 .btn-s::after {
   content: "";
   height: 15px;
