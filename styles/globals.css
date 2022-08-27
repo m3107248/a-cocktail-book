@@ -41,11 +41,7 @@ nav {
   color: #fff;
   margin: 0;
 }
-h3,
-button,
-input,
-input:-internal-autofill-selected,
-input[type="text"] {
+h3 {
   font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
     BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
   font-weight: 400;
@@ -54,6 +50,7 @@ input[type="text"] {
   line-height: 3.1rem;
   color: #fff;
   margin: 0;
+  -webkit-appearance: none;
 }
 
 h5,
@@ -94,6 +91,15 @@ a:hover {
   transition: 0.2s ease;
 }
 button {
+  font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
+    BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
+  font-weight: 400;
+  font-size: calc(1.4vw + 1rem);
+  letter-spacing: 0.8px;
+  line-height: 3.1rem;
+  color: #fff;
+  margin: 0;
+  -webkit-appearance: none;
   border: none;
   background-color: unset;
   cursor: pointer;
@@ -101,7 +107,8 @@ button {
 }
 input,
 input:-internal-autofill-selected,
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   border: none;
   border-bottom: solid 1px #fff;
   background-color: rgba(255, 255, 255, 0) !important;
@@ -122,6 +129,22 @@ input.dark:focus {
 }
 input::placeholder {
   color: #b8b8b8;
+}
+input {
+  border: none;
+  border-bottom: solid 1px #fff;
+  background-color: rgba(255, 255, 255, 0) !important;
+  box-shadow: unset !important;
+  width: 100%;
+  font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
+    BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
+  font-weight: 400;
+  font-size: calc(1.4vw + 1rem);
+  letter-spacing: 0.8px;
+  line-height: 3.1rem;
+  color: #fff;
+  margin: 0;
+  -webkit-appearance: none;
 }
 .btn::after {
   content: "";
@@ -790,4 +813,12 @@ video {
     min-height: unset;
   }
   /* LOGIN END */
+}
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
 }
