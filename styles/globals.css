@@ -499,12 +499,12 @@ nav ul.nav-ul {
 .login-inner-container {
   background: rgba(255, 255, 255, 0.8);
   background: linear-gradient(
-    140deg,
-    rgba(255, 255, 255, 0.9) 35%,
-    rgba(255, 255, 255, 0.4) 100%
+    -140deg,
+    rgba(255, 255, 255, 0.8) 25%,
+    rgba(255, 255, 255, 0.3) 100%
   );
-  box-shadow: 15px 20px 35px -21px rgba(166, 130, 118, 0.8),
-    -15px -20px 45px -38px rgba(144, 185, 231, 0.6);
+  box-shadow: 15px 20px 35px -21px rgba(78, 52, 1, 0.8),
+    -15px -20px 45px -38px rgba(81, 201, 224, 0.6);
   border-radius: 14px;
   text-align: center;
   min-width: 100%;
@@ -526,7 +526,7 @@ nav ul.nav-ul {
 }
 .container-bg > div {
   filter: blur(0px);
-  background-image: url("../public/bg-cocktail.jpg");
+  /* background-image: url("../public/bg-cocktail.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
