@@ -11,14 +11,6 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASEANON
 );
 
-/* Router.events.on("routeChangeStart", () => {
-  console.log("start loading");
-});
-Router.events.on("routeChangeComplete", () => {
-  console.log("end loading");
-});
- */
-
 export const LoginContext = createContext({
   loginState: "",
   setLoginState: () => {},

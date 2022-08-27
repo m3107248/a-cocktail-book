@@ -30,8 +30,6 @@ export default function Login() {
     });
     if (session) {
       setLoginState("authenticating");
-      /*      console.log(user);
-      console.log(session); */
       setUserInfo(user);
     }
     if (error) {
