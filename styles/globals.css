@@ -690,8 +690,8 @@ video {
   input,
   input:-internal-autofill-selected,
   input[type="text"] {
-    font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
-      BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
+    -webkit-font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, serif;
+    font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, serif;
     font-size: 1.9rem;
     line-height: 2.5rem;
     font-style: normal;
@@ -705,6 +705,8 @@ video {
   }
   input {
     -webkit-appearance: none;
+    -webkit-border: none;
+    -webkit-border-bottom: solie 1px #000;
     -webkit-border-radius: 0px;
   }
   /* TYPOGRAPHY END */
