@@ -70,7 +70,7 @@ export default function Login() {
               onChange={handleUsernameInput}
             />
           </label>
-          <label htmlFor="password" className="col-50 col-s-100 p-25">
+          <label htmlFor="password" className="col-50 col-s-100 p-25 pt-s-0">
             <input
               className="dark"
               type="password"

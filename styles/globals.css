@@ -46,7 +46,8 @@ button,
 input,
 input:-internal-autofill-selected,
 input[type="text"] {
-  font-family: "Unna", serif;
+  font-family: "Unna", "Philosopher", Helvetica Neue, Helvetica, -apple-system,
+    BlinkMacSystemFont, Roboto, Oxygen, sans-serif;
   font-weight: 400;
   font-size: calc(1.4vw + 1rem);
   letter-spacing: 0.8px;
@@ -718,6 +719,9 @@ video {
   }
   .pr-75 {
     padding-right: 0;
+  }
+  .pt-s-0 {
+    padding-top: 0;
   }
   /* LAYOUT START */
 
